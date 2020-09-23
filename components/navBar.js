@@ -1,7 +1,6 @@
 class NavBar extends HTMLElement {
     constructor() {
         super();
-        // this.root = this.attachShadow({mode: 'open'});
         this.innerHTML = this.COMPONENT_HTML;
     }
 
@@ -26,4 +25,4 @@ class NavBar extends HTMLElement {
     }
 }
 
-customElements.define('nav-bar', NavBar)
+customElements.define('nav-bar', NavBar);
