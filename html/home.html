@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
+
+    <title>Home</title>
+</head>
+
+<body id="home-page" class="h-100">
+    <nav-bar></nav-bar>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="categoryList" class="sec col-md-3">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCategory"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input type="text" id="inputFilter" onkeyup="" placeholder="Filter...">
+                        <a class="dropdown-item" href="#">Character</a>
+                        <a class="dropdown-item" href="#">Setting</a>
+                        <a class="dropdown-item" href="#">Plot</a>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="addCategory">
+                        &#43;
+                </button><br>
+                
+                <input type="text" id="inputFilter" onkeyup="" placeholder="Filter...">
+                <ul>
+                    <li class="active"><a data-toggle="tab" href="#character">Character</a></li>
+                    <li><a data-toggle="tab" href="#setting1">Setting 1</a></li>
+                    <li><a data-toggle="tab" href="#setting2">Setting 2</a></li>
+                    <li><a data-toggle="tab" href="#setting3">Setting 3</a></li>
+                </ul>
+            </div>
+
+            <div id="entry" class="sec col-md-9">
+                <div class="tab-content">
+                    <div id="character" class="tab-pane fade active show">
+                        <h3>Character</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="setting1" class="tab-pane fade">
+                        <h3>Setting 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+                    </div>
+                    <div id="setting2" class="tab-pane fade">
+                        <h3>Setting 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="setting3" class="tab-pane fade">
+                        <h3>Setting 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                            explicabo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"
+        async></script>
+
+    <!-- LESS Styles Scripts -->
+    <script src="../css/less.min.js" async></script>
+
+    <!-- Custom HTML Elements -->
+    <script src="../components/navBar.js" async></script>
+    <script src="../components/newCategory/textField.js" async></script>
+    <script src="../components/newCategory/selectField.js" async></script>
+    <script src="../components/createElementButton.js" async></script>
+</body>
+
+</html>
