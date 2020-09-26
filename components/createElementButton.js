@@ -18,7 +18,7 @@ class CreateElementButton extends HTMLElement {
 
     get COMPONENT_HTML() {
         let html = `
-        <button>/* Button Title */</button>`;
+        <button class="btn btn-primary">/* Button Title */</button>`;
         html = html.replace(
             '/* Button Title */', this.getAttribute(CreateElementButton.TITLE));
         return html;
