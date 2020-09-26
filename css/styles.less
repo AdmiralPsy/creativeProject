@@ -1,10 +1,79 @@
 @desktop-min-width:  768px;
 @mobile-max-width:  767px;
 
+/* Color Definitions */
+/* https://coolors.co/f5f5f5-212529-cd8b76-c05746-44bba4-32907d-748b75 */
+@background:        #F5F5F5;
+@primary-light:     #CD8B76;
+@primary-light-a:   #CD8B7699;
+@primary-dark:      #C05746;
+@secondary-light:   #44BBA4;
+@secondary-light-a: #44BBA499;
+@secondary-dark:    #32907D;
+@tertiary:          #748B75;
+@black:             #0F0F0F;
+@menu-bars:         #212529;
+/* End Color Definitions */
+
+/* Global Styles */
 body {
-    background-color: #f5f5f5;
+    background-color: @background;
+
+    #body-div {
+        margin: 20px;
+    }
 }
 
+a {
+    color: @primary-light;
+}
+
+a:visited {
+    color: @primary-dark;
+}
+
+input {
+    background-color: @background;
+}
+
+.btn-primary {
+    background-color: @primary-light !important;
+    border: @primary-light !important;
+}
+
+.btn-primary:hover, .btn-secondary:focus, .btn-primary:active, .btn-primary:visited {
+    background-color: @primary-dark !important;
+    border: @primary-dark !important;
+}
+
+.btn-secondary {
+    background-color: @secondary-light !important;
+    border: @secondary-light !important;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary:visited {
+    background-color: @secondary-dark !important;
+    border: @secondary-dark !important;
+}
+
+.btn-primary:focus, textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: @primary-light !important;
+    box-shadow: 0 0 8px @primary-light-a !important;
+    outline: 0 none;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-secondary:focus {
+    border-color: @secondary-light !important;
+    box-shadow: 0 0 8px @secondary-light-a !important;
+    outline: 0 none;
+    position: relative;
+    z-index: 1;
+}
+/* End Global Styles */
+
+/* Page Styles */
 #index-page {
     h1 {
         text-align: center;
@@ -37,10 +106,12 @@ body {
         padding: 35px;
         overflow-y: auto;
     }
+
     .container-fluid {
         height: calc(100% - 144px);
         position: relative;
     }
+
     .dropdown{
         margin-bottom: 10px;
         display: inline-block;
@@ -52,18 +123,26 @@ body {
             overflow-y: auto;
         }
     }
+
     #inputFilter {
         margin-bottom: 10px;
     }
+
     #categoryList {
         ul {
             display: block;
             padding-left: 0;
             margin-bottom: 0;
             list-style: none;
-        }
-        .nav-link.active {
-            font-weight: 700;
+
+            a {
+                color: @primary-light;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: @primary-dark;
+            }
         }
     }
     img {
@@ -77,9 +156,10 @@ body {
             height: 100%;
         }
         #entry {
-            border-left: 1px solid #0f0f0f;
+            border-left: 1px solid @black;
         }
     }
+
     @media (max-width: @mobile-max-width) {
         #entry {
             border-top: 1px solid #0f0f0f;
@@ -105,25 +185,14 @@ body {
         font-size: 24px;
     }
 }
+/* End Page Styles */
 
+/* Reusable Web Component Styles */
 #toolbar {
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 20px;
     background-color: #343A40;
-    #footer-credit {
-        color: white;
-    }
 }
-
-assignment-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background-color: #343A40;
-    color: white;
-    text-align: center;
-}
+/* End Reusable Web Component Styles */

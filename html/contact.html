@@ -8,22 +8,25 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet/less" type="text/css" href="../css/styles.less" />
 
-    <title>New Category</title>
+    <title>Contact Us</title>
 </head>
-<body id="new-category">
+<body>
     <nav-bar></nav-bar>
 
-    <form>
-        <input id="categoryName" class="borderless" maxlength="30" size="30" placeholder="New Category">
-        <br>
-    </form>
+    <div id="body-div">
+        <h3>Zachary Gallafent</h3>
+        <p><a href="mailto:zachary@compguy.com">Email</a></p>
+        <p><a href="https://github.com/AdmiralPsy">GitHub</a></p>
+        <p><a href="https://www.linkedin.com/in/zachary-gallafent-68642b170/">LinkedIn</a></p>
 
-    <assignment-footer style="margin: 20px;"></assignment-footer>
+        <h3>Spencer Magnusson</h3>
+        <p><a href="mailto:#">Email</a></p>
+        <p><a href="#">GitHub</a></p>
+        <p><a href="#">LinkedIn</a></p>
 
-    <div id="toolbar">
-        <create-element-button title="Add Text Field" target="form" element-tag="text-field"></create-element-button>
-        <create-element-button title="Add Select Field" target="form" element-tag="select-field"></create-element-button>
+        <assignment-footer></assignment-footer>
     </div>
+
 
     <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -40,8 +43,5 @@
     <!-- Custom HTML Elements -->
     <script src="../components/navBar.js" async></script>
     <script src="../components/footer.js" async></script>
-    <script src="../components/newCategory/textField.js" async></script>
-    <script src="../components/newCategory/selectField.js" async></script>
-    <script src="../components/createElementButton.js" async></script>
 </body>
 </html>
