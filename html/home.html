@@ -30,11 +30,11 @@
                         <a class="dropdown-item" href="#">Plot</a>
                     </div>
                 </div>
-                <button class="btn btn-secondary" id="addCategory">
+                <a href="newCategory.html" class="btn btn-secondary" id="addCategory">
                         &#43;
-                </button><br>
+                </a><br>
                 
-                <input type="text" id="inputFilter" onkeyup="" placeholder="Filter...">
+                <input type="text" id="inputFilter" onkeyup="" placeholder="Filter entries..."> <a href="#" class="btn btn-secondary">&#43;</a>
                 <ul class="nav flex-column" data-tabs="tabs">
                     <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#character">Character</a></li>
                     <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting1">Setting 1</a></li>
@@ -49,16 +49,19 @@
                         <h3>Character</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
+                        <img src="https://svgsilh.com/png/2229608.png" alt="ajaib sihir dongeng fantasi">
                     </div>
                     <div id="setting1" class="tab-pane fade">
                         <h3>Setting 1</h3>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                             commodo consequat.</p>
+                        <img src="https://live.staticflickr.com/7173/6685226987_dc91e7890a_b.jpg" alt="The forest road, Chilapata" width=500>
                     </div>
                     <div id="setting2" class="tab-pane fade">
                         <h3>Setting 2</h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                             laudantium, totam rem aperiam.</p>
+                        <img src="https://live.staticflickr.com/1462/24686116923_ee41523d0e_b.jpg" alt="Clouds Over Forested Hillside">
                     </div>
                     <div id="setting3" class="tab-pane fade">
                         <h3>Setting 3</h3>
@@ -69,6 +72,8 @@
             </div>
         </div>
     </div>
+
+    <assignment-footer></assignment-footer>
 
     <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -85,9 +90,7 @@
 
     <!-- Custom HTML Elements -->
     <script src="../components/navBar.js" async></script>
-    <script src="../components/newCategory/textField.js" async></script>
-    <script src="../components/newCategory/selectField.js" async></script>
-    <script src="../components/createElementButton.js" async></script>
+    <script src="../components/footer.js" async></script>
 </body>
 
 </html>

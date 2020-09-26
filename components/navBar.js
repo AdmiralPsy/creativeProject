@@ -17,7 +17,7 @@ class NavBar extends HTMLElement {
                 <a class="navbar-brand" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="login.html">Log Out</a>
             </li>    
         </ul>
     </div>

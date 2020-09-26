@@ -38,7 +38,7 @@ body {
         overflow-y: auto;
     }
     .container-fluid {
-        height: calc(100% - 56px);
+        height: calc(100% - 144px);
         position: relative;
     }
     .dropdown{
@@ -57,6 +57,7 @@ body {
     }
     #categoryList {
         ul {
+            display: block;
             padding-left: 0;
             margin-bottom: 0;
             list-style: none;
@@ -64,6 +65,9 @@ body {
         .nav-link.active {
             font-weight: 700;
         }
+    }
+    img {
+        max-width: 100%;
     }
     @media (min-width: @desktop-min-width) {
         .sec {
@@ -77,12 +81,13 @@ body {
         }
     }
     @media (max-width: @mobile-max-width) {
-        #categoryList {
-            max-height: 40%;
-        }
         #entry {
             border-top: 1px solid #0f0f0f;
-            max-height: 60%;
+            max-height: calc(60vh - 118px);
+        }
+        #categoryList ul {
+            max-height: 150px;
+            overflow-y: auto;
         }
     }
 }
