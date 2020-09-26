@@ -12,6 +12,7 @@
 @secondary-dark:    #32907D;
 @tertiary:          #748B75;
 @black:             #0F0F0F;
+@white:             #FFFFFF;
 @menu-bars:         #212529;
 /* End Color Definitions */
 
@@ -37,21 +38,23 @@ input {
 }
 
 .btn-primary {
-    background-color: @primary-light !important;
-    border: @primary-light !important;
+    background-color: @primary-light;
+    border: @primary-light;
+    color: @white !important;
 }
 
-.btn-primary:hover, .btn-secondary:focus, .btn-primary:active, .btn-primary:visited {
+.btn-primary:hover, .btn-secondary:focus, .btn-primary:active {
     background-color: @primary-dark !important;
     border: @primary-dark !important;
 }
 
 .btn-secondary {
-    background-color: @secondary-light !important;
-    border: @secondary-light !important;
+    background-color: @secondary-light;
+    border: @secondary-light;
+    color: @white !important;
 }
 
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary:visited {
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
     background-color: @secondary-dark !important;
     border: @secondary-dark !important;
 }
