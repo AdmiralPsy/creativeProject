@@ -24,7 +24,7 @@
                         Category
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <input type="text" id="inputFilter" onkeyup="" placeholder="Filter...">
+                        <input type="text" class="inputFilter" onkeyup="" placeholder="Filter...">
                         <a class="dropdown-item" href="#">Character</a>
                         <a class="dropdown-item" href="#">Setting</a>
                         <a class="dropdown-item" href="#">Plot</a>
@@ -34,41 +34,12 @@
                         &#43;
                 </a><br>
                 
-                <input type="text" id="inputFilter" onkeyup="" placeholder="Filter entries..."> <a href="#" class="btn btn-secondary">&#43;</a>
-                <ul class="nav flex-column" data-tabs="tabs">
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#character">Character</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting1">Setting 1</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting2">Setting 2</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting3">Setting 3</a></li>
-                </ul>
+                <input type="text" class="inputFilter" onkeyup="" placeholder="Filter entries..."> <a href="#" class="btn btn-secondary">&#43;</a>
+                <ul id="category-item-list" class="nav flex-column" data-tabs="tabs"></ul>
             </div>
 
             <div id="entry" class="sec col-md-9">
-                <div class="tab-content">
-                    <div id="character" class="tab-pane fade active show">
-                        <h3>Character</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="https://svgsilh.com/png/2229608.png" alt="ajaib sihir dongeng fantasi">
-                    </div>
-                    <div id="setting1" class="tab-pane fade">
-                        <h3>Setting 1</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.</p>
-                        <img src="https://live.staticflickr.com/7173/6685226987_dc91e7890a_b.jpg" alt="The forest road, Chilapata" width=500>
-                    </div>
-                    <div id="setting2" class="tab-pane fade">
-                        <h3>Setting 2</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam.</p>
-                        <img src="https://live.staticflickr.com/1462/24686116923_ee41523d0e_b.jpg" alt="Clouds Over Forested Hillside">
-                    </div>
-                    <div id="setting3" class="tab-pane fade">
-                        <h3>Setting 3</h3>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                            explicabo.</p>
-                    </div>
-                </div>
+                <div class="tab-content"></div>
             </div>
         </div>
     </div>
@@ -91,6 +62,9 @@
     <!-- Custom HTML Elements -->
     <script src="../components/navBar.js" async></script>
     <script src="../components/footer.js" async></script>
+
+    <!-- Controller -->
+    <script src="../controllers/homeController.js"></script>
 </body>
 
 </html>
