@@ -33,13 +33,14 @@
                 <a href="newCategory.html" class="btn btn-secondary" id="addCategory">
                         &#43;
                 </a><br>
-                
-                <input type="text" class="inputFilter" onkeyup="" placeholder="Filter entries..."> <a href="#" class="btn btn-secondary">&#43;</a>
-                <ul id="category-item-list" class="nav flex-column" data-tabs="tabs"></ul>
+
+                <input id="itemListFilter" type="text" class="inputFilter" placeholder="Filter entries...">
+                <a href="#" class="btn btn-secondary">&#43;</a>
+                <ul id="itemList" class="nav flex-column" data-tabs="tabs"></ul>
             </div>
 
             <div id="entry" class="sec col-md-9">
-                <div class="tab-content"></div>
+                <div id="selectedItem" class="tab-content"></div>
             </div>
         </div>
     </div>

@@ -1,68 +1,95 @@
 window.onload = async () => {
-    let baconIspum;
+    let items = [];
+
     try {
-        baconIspum = await fetch('https://baconipsum.com/api/?type=meat-and-filler&paras=4');
-        baconIspum = await baconIspum.json();
+        let baconIpsum = await fetch('https://baconipsum.com/api/?type=meat-and-filler&paras=4');
+        baconIpsum = await baconIpsum.json();
+        baconIpsum.forEach((ipsum) => {
+            items.push({
+                body: ipsum
+            });
+        })
     } catch (e) {
         console.error(e);
         return;
     }
 
-    let names = [];
-    baconIspum.forEach((ispum) => {
-        let splitIspum = ispum.split(' ');
-        splitIspum[1] = splitIspum[1].substr(0, 1).toUpperCase() + splitIspum[1].substr(1);
-        names.push(splitIspum[0] + ' ' + splitIspum[1]);
+    await Promise.all(items.map(async (item) => {
+        let splitIpsum = item.body.split(' ');
+        splitIpsum[1] = splitIpsum[1].substr(0, 1).toUpperCase() + splitIpsum[1].substr(1);
+        item.name = splitIpsum[0] + ' ' + splitIpsum[1];
+
+        try {
+            let iconRequest = await fetch(`https://api.kwelo.com/v1/media/identicon/${item.name}?format=base64`);
+            item.iconUrl = await iconRequest.text();
+        } catch (e) {
+            console.error(e);
+        }
+
+        item.listElement = createListElement(item);
+        item.tabElement = createTabElement(item);
+    }));
+
+    items.sort((a, b) => {
+        return a.name > b.name ? 1 : -1
     });
 
-    let iconUrls = [];
-    try {
-        for (const name of names) {
-            let iconRequest = await fetch(`https://api.kwelo.com/v1/media/identicon/${name}?format=base64`);
-            iconUrls.push(await iconRequest.text());
-        }
-    } catch (e) {
-        console.error(e);
-    }
+    let itemList = document.getElementById('itemList');
+    let tabContent = document.getElementById('selectedItem');
+    items.forEach((item) => {
+        itemList.appendChild(item.listElement);
+        tabContent.appendChild(item.tabElement);
+    });
 
-    let itemList = document.getElementById('category-item-list');
-    let tabContent = document.getElementsByClassName('tab-content')[0];
-    for (let i = 0; i < baconIspum.length; i++) {
-        itemList.appendChild(createListItem(names[i]));
-        tabContent.appendChild(createItemTab(names[i], baconIspum[i], iconUrls[i]));
-    }
+    document.getElementById('itemListFilter')
+        .addEventListener('keyup', createItemFilterListener(items), true);
 }
 
-function createListItem(name) {
-    let item = document.createElement('LI');
-    item.className = 'nav-item';
+function createListElement(item) {
+    let itemElement = document.createElement('LI');
+    itemElement.className = 'nav-item';
 
-    let link = document.createElement('A');
-    link.className = 'nav-link';
-    link.setAttribute('data-toggle', 'tab');
-    link.href = `#${name.split(' ').join('')}`;
-    link.appendChild(document.createTextNode(name));
-    item.appendChild(link);
+    let linkElement = document.createElement('A');
+    linkElement.className = 'nav-link';
+    linkElement.setAttribute('data-toggle', 'tab');
+    linkElement.href = `#${item.name.split(' ').join('')}`;
+    linkElement.appendChild(document.createTextNode(item.name));
+    itemElement.appendChild(linkElement);
 
-    return item
+    return itemElement;
 }
 
-function createItemTab(name, ispum, iconUrl) {
-    let item = document.createElement("DIV");
-    item.id = name.split(' ').join('');
-    item.className = 'tab-pane fade';
+function createTabElement(item) {
+    let itemElement = document.createElement("DIV");
+    itemElement.id = item.name.split(' ').join('');
+    itemElement.className = 'tab-pane fade';
 
-    let header = document.createElement('H3');
-    header.appendChild(document.createTextNode(name));
-    item.appendChild(header);
+    let headerElement = document.createElement('H3');
+    headerElement.appendChild(document.createTextNode(item.name));
+    itemElement.appendChild(headerElement);
 
-    let text = document.createElement('P');
-    text.appendChild(document.createTextNode(ispum));
-    item.appendChild(text);
+    let textElement = document.createElement('P');
+    textElement.appendChild(document.createTextNode(item.body));
+    itemElement.appendChild(textElement);
 
-    let image = document.createElement('IMG');
-    image.setAttribute('src', iconUrl);
-    item.appendChild(image);
+    let imageElement = document.createElement('IMG');
+    imageElement.setAttribute('src', item.iconUrl);
+    itemElement.appendChild(imageElement);
 
-    return item;
+    return itemElement;
+}
+
+function createItemFilterListener(itemList) {
+    return (event) => {
+        let filterString = event.currentTarget.valueOf().value;
+        console.log(filterString);
+        itemList.forEach((item) => {
+            if (filterString.length === 0 || (
+                    item.name.length >= filterString.length && item.name.includes(filterString))) {
+                item.listElement.style.display = 'block';
+            } else {
+                item.listElement.style.display = 'none';
+            }
+        });
+    }
 }
