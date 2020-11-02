@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Character",
+        "fields": [
+            {"Name": "text"},
+            {"Place of Birth": "text"},
+            {"Race": "text"},
+            {"Age": "text"},
+            {
+                "Gender": "radio",
+                "options": [
+                    "Male",
+                    "Female"
+                ]
+            },
+            {"Short Bio": "textarea"}
+        ]
+    },
+    {
+        "name": "Setting",
+        "fields": [
+            {"Name": "text"},
+            {"Location": "text"},
+            {"Image": "image"},
+            {"Description": "textarea"}
+        ]
+    },
+    {
+        "name": "Event",
+        "fields": [
+            {"Name": "text"},
+            {"Date": "text"},
+            {"Place": "text"},
+            {"Image": "image"},
+            {"Description": "textarea"}
+        ]
+    }
+]
