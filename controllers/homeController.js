@@ -20,8 +20,8 @@ window.onload = async () => {
         item.name = splitIpsum[0] + ' ' + splitIpsum[1];
 
         try {
-            let iconRequest = await fetch(`https://api.kwelo.com/v1/media/identicon/${item.name}?format=base64`);
-            item.iconUrl = await iconRequest.text();
+            // let iconRequest = await fetch(`https://api.kwelo.com/v1/media/identicon/${item.name}?format=base64`);
+            // item.iconUrl = await iconRequest.text();
         } catch (e) {
             console.error(e);
         }
@@ -34,15 +34,34 @@ window.onload = async () => {
         return a.name > b.name ? 1 : -1
     });
 
-    let itemList = document.getElementById('itemList');
-    let tabContent = document.getElementById('selectedItem');
     items.forEach((item) => {
-        itemList.appendChild(item.listElement);
-        tabContent.appendChild(item.tabElement);
+        item.listElement = createListElement(item);
+        item.tabElement = createTabElement(item);
     });
 
-    document.getElementById('itemListFilter')
-        .addEventListener('keyup', createItemFilterListener(items), true);
+    let itemVue = new Vue({
+        el: '#itemList',
+        data: {
+            items
+        }
+    });
+
+    let tabVue = new Vue({
+        el: '#selectedItem',
+        data: {
+            items
+        }
+    });
+
+    // let itemList = document.getElementById('itemList');
+    // let tabContent = document.getElementById('selectedItem');
+    // items.forEach((item) => {
+    //     itemList.appendChild(item.listElement);
+    //     tabContent.appendChild(item.tabElement);
+    // });
+    //
+    // document.getElementById('itemListFilter')
+    //     .addEventListener('keyup', createItemFilterListener(items), true);
 }
 
 function createListElement(item) {

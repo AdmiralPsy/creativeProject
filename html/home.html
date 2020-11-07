@@ -35,11 +35,20 @@
 
                 <input id="itemListFilter" type="text" class="inputFilter" placeholder="Filter entries...">
                 <a href="#" class="btn btn-secondary">&#43;</a>
-                <ul id="itemList" class="nav flex-column" data-tabs="tabs"></ul>
+                <ul id="itemList" class="nav flex-column" data-tabs="tabs">
+                    <li class="nav-item" v-for="item in items">
+                        <a class="nav-link" data-toggle="tab" :href="'#' + item.name.split(' ').join('')">{{ item.name }}</a>
+                    </li>
+                </ul>
             </div>
 
             <div id="entry" class="sec col-md-9">
-                <div id="selectedItem" class="tab-content"></div>
+                <div id="selectedItem" class="tab-content">
+                    <div v-for="item in items" :id="item.name.split(' ').join('')" class="tab-pane fade">
+                        <h3>{{item.name}}</h3>
+                        <p>{{item.body}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,6 +64,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"
         async></script>
+
+    <!-- Vue.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
     <!-- LESS Styles Scripts -->
     <script src="../css/less.min.js" async></script>
